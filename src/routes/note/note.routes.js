@@ -1,8 +1,6 @@
-import { app } from './consts';
-import { createNote, findAllNote, findOneNote, updateNote, deleteNote } from './controllers/note.controller';
+import { createNote, findAllNote, findOneNote, updateNote, deleteNote } from './../../controllers/note/note.controller';
 
-export default (app) => {
-
+export default function noteRoutes(app) {
     /** Create a new note */
     app.post('/notes', createNote);
 
@@ -18,5 +16,3 @@ export default (app) => {
     /** Delete a Note with noteId */
     app.delete('/notes/:noteId', deleteNote);
 }
-
-

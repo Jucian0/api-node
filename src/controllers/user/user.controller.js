@@ -1,5 +1,4 @@
-import UserModel from './../../models/user/user.model';
-import routes from '../../routes';
+import UserModel from '../../models/user/user.model';
 
 /** create a new user */
 export function createUser(req, res) {
@@ -100,7 +99,7 @@ export function updateUser(req, res) {
 };
 
 /** Delete a user with the specified userId in the request */
-export function deleteNote (req, res) {
+export function deleteUser (req, res) {
     NoteModel.findByIdAndRemove(req.params.userId)
         .then((note) => {
             if (!note) {

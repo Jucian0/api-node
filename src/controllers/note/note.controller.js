@@ -1,4 +1,4 @@
-import NoteModel from './../models/note.model';
+import NoteModel from './../../models/note/note.model';
 
 /** Create and return all notes from the database */
 export function createNote(req, res, next) {

@@ -1,5 +1,5 @@
-import { jwt } from './../../const';
-import config from './../../config';
+import { jwt } from '../../const';
+import { config } from '../../config';
 
 export function verifyToken(req, res, next) {
 
