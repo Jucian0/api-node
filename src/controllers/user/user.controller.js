@@ -28,7 +28,10 @@ export function createUser(req, res) {
 /** return all the users in the database */
 export function findAllUsers(req, res) {
     UserModel.find()
-        .then((users) => {
+        .then((result) => {
+            const users = result.map((user)=>{
+                return {_id: user._id, name: user.name, email: user.email, createdAt: user.createdAt, updatedAt: user.updatedAt};
+            })
             res.status(200).send(users);
         })
         .catch((res) => {
@@ -40,7 +43,7 @@ export function findAllUsers(req, res) {
 
 /** find a single note with a userId */
 export function findOneUser(req, res) {
-    UserModel.findById(req.params.userId)
+    UserModel.findById(req.params.userId, {password: 0})
         .then((user) => {
             if (!user) {
                 return res.status(404).send({

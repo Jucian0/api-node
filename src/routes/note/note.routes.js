@@ -2,17 +2,17 @@ import { createNote, findAllNote, findOneNote, updateNote, deleteNote } from './
 
 export default function noteRoutes(app) {
     /** Create a new note */
-    app.post('/notes', createNote);
+    app.post('/note', createNote);
 
     /** Retrieve all Notes */
-    app.get('/notes', findAllNote);
+    app.get('/note', findAllNote);
 
     /** Retrieve a single Note with noteID */
-    app.get('/notes/:noteId', findOneNote);
+    app.get('/note/:noteId', findOneNote);
 
     /** Update a Note with noteId */
-    app.put('/notes/:noteId', updateNote);
+    app.put('/note/:noteId', updateNote);
 
     /** Delete a Note with noteId */
-    app.delete('/notes/:noteId', deleteNote);
+    app.delete('/note/:noteId', deleteNote);
 }
