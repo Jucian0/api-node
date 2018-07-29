@@ -52,10 +52,26 @@ export function me(req, res) {
         if (error) {
             return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         };
+        UserModel.findById(decoded.id, {password: 0})
+            .then((user) => {
+                if (!user) {
+                    return res.status(404).send({
+                        message: `User not found with id ${req.params.userId}`
+                    });
+                }
+                res.status(200).send(user);
+            })
+            .catch((error) => {
+                if (error.kind === 'ObjectId') {
+                    return res.status(404).send({
+                        message: `User not found with id ${req.params.userId}`
+                    })
+                }
 
-        console.log(decoded)
-
-        res.status(200).send(decoded);
+                return res.status(500).send({
+                    message: `Error retrieving note with id ${req.params.userId}`
+                });
+            });
     })
 }
 
