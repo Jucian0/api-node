@@ -1,3 +1,4 @@
+This is a simple api-rest for begin apis node with express and es6.
 # node-express-babel-boilerplate
 Boilerplate of node.js express app with babel and es6 source code.
 
