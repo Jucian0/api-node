@@ -4,7 +4,7 @@ import { config } from '../../config';
 export default function verifyToken(req, res, next) {
 
     /** Check header or url parameters or post parameters for token */
-    var token = req.headers['x-access-token'];
+    const token = req.headers['x-access-token'];
     if (!token) {
         return res.status(403).send({
             auth: false,
