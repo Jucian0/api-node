@@ -1,14 +1,14 @@
-import noteRoutes from './note/note.routes';
-import userRoutes from './user/user.routes';
-import authRoutes from './auth/auth.routes';
+import NoteRoutes from './note/note.routes';
+import UseRoutes from './user/user.routes';
+import AuthRoutes from './auth/auth.routes';
 
 export default function mainRoutes (app) {
 
-    noteRoutes(app);
+    NoteRoutes.routes(app);
 
-    userRoutes(app);
+    UseRoutes.routes(app);
 
-    authRoutes(app);
+    AuthRoutes.routes(app);
 }
 
 

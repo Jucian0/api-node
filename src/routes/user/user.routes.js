@@ -1,21 +1,13 @@
-import { createUser, findAllUsers, findOneUser, updateUser, deleteUser } from './../../controllers/user/user.controller';
-import { verifyToken } from './../../controllers/auth/verify-token';
+import UserController from './../../controllers/user/user.controller';
+import verifyToken from './../../controllers/auth/verify-token';
 
-export default function userRoutes(app){
+export default class UseRoutes {
 
-        /** Create a new User */
-        app.post('/user',verifyToken, createUser);
-
-        /** Retrieve all Users */
-        app.get('/user', verifyToken, findAllUsers);
-    
-        /** Retrieve a single User with userID */
-        app.get('/user/:userId', verifyToken, findOneUser);
-    
-        /** Update a User with userId */
-        app.put('/user/:userId', verifyToken, updateUser);
-    
-        /** Delete a User with userId */
-        app.delete('/user/:userId', verifyToken, deleteUser);
-
-}
+        static routes(app) {
+                app.post('/user', UserController.createUser);
+                app.get('/user', verifyToken, UserController.findAllUsers);
+                app.get('/user/:userId', UserController.findOneUser);
+                app.put('/user/:userId', UserController.updateUser);
+                app.delete('/user/:userId', UserController.deleteUser);
+        }
+} 
