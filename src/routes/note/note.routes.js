@@ -1,18 +1,12 @@
-import { createNote, findAllNote, findOneNote, updateNote, deleteNote } from './../../controllers/note/note.controller';
+import NoteController from './../../controllers/note/note.controller';
 
-export default function noteRoutes(app) {
-    /** Create a new note */
-    app.post('/note', createNote);
+export default class NoteRoutes {
 
-    /** Retrieve all Notes */
-    app.get('/note', findAllNote);
-
-    /** Retrieve a single Note with noteID */
-    app.get('/note/:noteId', findOneNote);
-
-    /** Update a Note with noteId */
-    app.put('/note/:noteId', updateNote);
-
-    /** Delete a Note with noteId */
-    app.delete('/note/:noteId', deleteNote);
+    static routes(app) {
+        app.post('/note', NoteController.createNote);
+        app.get('/note', NoteController.findAllNote);
+        app.get('/note/:noteId', NoteController.findOneNote)
+        app.put('/note/:noteId', NoteController.updateNote);
+        app.delete('/note/:noteId', NoteController.deleteNote);
+    }
 }

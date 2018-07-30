@@ -1,7 +1,7 @@
 import { jwt } from '../../const';
 import { config } from '../../config';
 
-export function verifyToken(req, res, next) {
+export default function verifyToken(req, res, next) {
 
     /** Check header or url parameters or post parameters for token */
     var token = req.headers['x-access-token'];
