@@ -1,7 +1,7 @@
 {
   "name": "node-express-babel-boilerplate",
   "version": "1.0.0",
-  "description": "Boilerplate of node.js express app with babel and es6 source code.",
+  "description": "API nodeJS with mongoDB",
   "main": "dist/index.js",
   "scripts": {
     "watch": "babel -w src/ -d ./dist/",
